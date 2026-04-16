@@ -1,0 +1,392 @@
+[
+  {
+    "responsavel": "Arthur",
+    "jogo": "Trio",
+    "dificuldade": "Fácil",
+    "tempo": "15 min",
+    "jogadores": "2 - 6",
+    "estilo": "Card Game / Memória",
+    "imagem": "",
+    "descricao": "Jogo de cartas rápido em que os jogadores tentam formar trios de números iguais usando memória, observação e um pouco de dedução."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Exploden Kittens - English",
+    "dificuldade": "Médio",
+    "tempo": "20 min",
+    "jogadores": "2 - 10",
+    "estilo": "Party Game / Sorte",
+    "imagem": "",
+    "descricao": "Party game de cartas em que os jogadores compram cartas tentando evitar o gatinho explosivo, usando efeitos para se proteger, atacar ou atrapalhar os outros."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "SEA SALT & PAPER + Extrea Pepper",
+    "dificuldade": "Médio",
+    "tempo": "30 min",
+    "jogadores": "2 - 4",
+    "estilo": "Card Game / Estratégia",
+    "imagem": "",
+    "descricao": "Card game leve de coleção de conjuntos e combos, com cartas de temática marinha e decisão constante entre encerrar a rodada cedo ou arriscar mais pontos."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "CONNECT4 (4 em 1 Linha)",
+    "dificuldade": "Fácil",
+    "tempo": "10 min",
+    "jogadores": "2",
+    "estilo": "Abstrato / Clássico",
+    "imagem": "",
+    "descricao": "Clássico jogo abstrato para dois jogadores em que o objetivo é alinhar quatro peças da sua cor antes do adversário."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "CODENAMES IMAGES",
+    "dificuldade": "Médio",
+    "tempo": "15 - 20 min",
+    "jogadores": "3+",
+    "estilo": "Cooperativo / Dedução",
+    "imagem": "",
+    "descricao": "Jogo em equipes de dedução e associação visual, no qual os jogadores tentam encontrar as imagens certas a partir de dicas dadas pelo líder do time."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Bandido",
+    "dificuldade": "Fácil",
+    "tempo": "15 min",
+    "jogadores": "1 - 4",
+    "estilo": "Cooperativo / Puzzle",
+    "imagem": "",
+    "descricao": "Jogo cooperativo em que todos tentam impedir a fuga de um prisioneiro, bloqueando túneis com cartas antes que as saídas fiquem abertas demais."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Bang!",
+    "dificuldade": "Difícil",
+    "tempo": "20 - 40 min",
+    "jogadores": "2 - 7",
+    "estilo": "Eliminação / Faroeste",
+    "imagem": "",
+    "descricao": "Jogo de blefe e papéis ocultos com clima de velho oeste, em que cada personagem tem um papel secreto e tenta cumprir seu objetivo eliminando os rivais certos."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "The Nasty 7 (Die fiesen 7)",
+    "dificuldade": "Fácil",
+    "tempo": "15 - 20 min",
+    "jogadores": "2 - 5",
+    "estilo": "Agilidade / Contagem",
+    "imagem": "",
+    "descricao": "Jogo rápido de cartas e contagem em que os jogadores precisam manter a atenção para falar números e trocar ações em momentos específicos."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "dracula vs van helsing",
+    "dificuldade": "Médio",
+    "tempo": "20 - 30 min",
+    "jogadores": "2",
+    "estilo": "Duelo / 2 Jogadores",
+    "imagem": "",
+    "descricao": "Duelo para dois jogadores em que Van Helsing tenta derrotar Drácula, enquanto Drácula busca transformar moradores em vampiros antes de perder toda a vida."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Carcassonne",
+    "dificuldade": "Médio",
+    "tempo": "35 - 50 min",
+    "jogadores": "2 - 5",
+    "estilo": "Tabuleiro / Colocação de Peças",
+    "imagem": "",
+    "descricao": "Clássico jogo de colocação de peças no qual os jogadores constroem cidades, estradas e campos para marcar pontos ao longo da partida."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Cara a Cara",
+    "dificuldade": "Muito Fácil",
+    "tempo": "10 - 15 min",
+    "jogadores": "2",
+    "estilo": "Infantil / Dedução",
+    "imagem": "",
+    "descricao": "Jogo simples de dedução para dois jogadores em que cada um tenta descobrir primeiro qual personagem o outro escolheu."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "F.D.P. (Foi de Propósito) - Cartas contra a Humanidade/Patuscada",
+    "dificuldade": "Médio",
+    "tempo": "30 - 60 min",
+    "jogadores": "3+",
+    "estilo": "Party Game / Adulto",
+    "imagem": "",
+    "descricao": "Party game adulto de humor ácido em que os jogadores combinam cartas para criar respostas engraçadas, absurdas ou provocativas."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Imagem e Ação",
+    "dificuldade": "Fácil",
+    "tempo": "45 - 60 min",
+    "jogadores": "2+",
+    "estilo": "Party Game / Mímica",
+    "imagem": "",
+    "descricao": "Jogo de festa em que os participantes desenham ou representam pistas para que sua equipe adivinhe palavras, expressões ou situações."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Munchkin",
+    "dificuldade": "Difícil",
+    "tempo": "60 - 90 min",
+    "jogadores": "3 - 6",
+    "estilo": "Card Game / RPG Cômico",
+    "imagem": "",
+    "descricao": "Card game de humor e fantasia em que os jogadores enfrentam monstros, usam itens e trapaceiam amistosamente para ser o primeiro a alcançar o nível final."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "cocô (POOP)",
+    "dificuldade": "Fácil",
+    "tempo": "15 min",
+    "jogadores": "2 - 5",
+    "estilo": "Card Game / Party",
+    "imagem": "",
+    "descricao": "Jogo de cartas leve e bem-humorado, focado em combinação de cartas, timing e interação rápida entre os jogadores."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Taco gato Bolo Presente Pizza",
+    "dificuldade": "Fácil",
+    "tempo": "10 - 15 min",
+    "jogadores": "2 - 5",
+    "estilo": "Agilidade / Party",
+    "imagem": "",
+    "descricao": "Jogo de reflexos e reconhecimento de padrões em que todos precisam bater na pilha no momento certo, gerando partidas caóticas e divertidas."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Werewolf (cidade dorme de lobisomem e vampiro)",
+    "dificuldade": "Difícil",
+    "tempo": "30 - 45 min",
+    "jogadores": "9 - 10",
+    "estilo": "Party / Papéis Ocultos",
+    "imagem": "",
+    "descricao": "Jogo social de papéis ocultos em que os participantes discutem, acusam e tentam descobrir quem está eliminando os jogadores durante a noite."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "The MANHATTAM PROJECT",
+    "dificuldade": "Difícil",
+    "tempo": "60 - 120 min",
+    "jogadores": "1 - 5",
+    "estilo": "Estratégia Pesada / Alocação",
+    "imagem": "",
+    "descricao": "Jogo de estratégia mais pesado em que os jogadores administram trabalhadores, recursos e construções para desenvolver bombas e avançar em uma corrida militar."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Avalon (The Resistance)",
+    "dificuldade": "Médio",
+    "tempo": "30 min",
+    "jogadores": "4 - 8",
+    "estilo": "Social / Dedução",
+    "imagem": "",
+    "descricao": "Jogo de dedução social com papéis secretos em que o grupo tenta aprovar missões enquanto espiões infiltrados trabalham para sabotá-las."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Batalha Naval",
+    "dificuldade": "Fácil",
+    "tempo": "20 min",
+    "jogadores": "2",
+    "estilo": "Clássico / Estratégia",
+    "imagem": "",
+    "descricao": "Clássico jogo para dois em que cada jogador tenta localizar e afundar a frota adversária através de palpites coordenados no tabuleiro."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "ticket to ride europa 1912 15th",
+    "dificuldade": "Difícil",
+    "tempo": "30 - 60 min",
+    "jogadores": "2 - 5",
+    "estilo": "Tabuleiro / Trens",
+    "imagem": "",
+    "descricao": "Jogo de rotas e coleção de cartas em que os jogadores conectam cidades da Europa por ferrovias para cumprir objetivos e marcar pontos."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Qual é seu meme?",
+    "dificuldade": "Fácil",
+    "tempo": "20 - 30 min",
+    "jogadores": "3+",
+    "estilo": "Party Game",
+    "imagem": "",
+    "descricao": "Party game em que os jogadores escolhem cartas de legenda para combinar com imagens e criar o meme mais engraçado da rodada."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Sheriff of nottingham 2nd edition",
+    "dificuldade": "Difícil",
+    "tempo": "60 min",
+    "jogadores": "2 - 6",
+    "estilo": "Blefe / Negociação",
+    "imagem": "",
+    "descricao": "Jogo de blefe e negociação em que mercadores tentam passar mercadorias pela inspeção do xerife, dizendo a verdade ou mentindo com convicção."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "ODD VILLE",
+    "dificuldade": "Difícil",
+    "tempo": "30 - 45 min",
+    "jogadores": "2 - 4",
+    "estilo": "Card Game / Construção",
+    "imagem": "",
+    "descricao": "Jogo de construção e desenvolvimento em que os jogadores montam uma vila peculiar usando cartas e efeitos para otimizar sua pontuação."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "UNO",
+    "dificuldade": "Fácil",
+    "tempo": "20 min",
+    "jogadores": "2+",
+    "estilo": "Clássico / Cartas",
+    "imagem": "",
+    "descricao": "Clássico jogo de cartas em que os jogadores descartam por cor ou número, usando cartas especiais para inverter, pular ou forçar compras."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Panic Lab",
+    "dificuldade": "Fácil",
+    "tempo": "15 - 30 min",
+    "jogadores": "2 - 9",
+    "estilo": "Agilidade Visual",
+    "imagem": "",
+    "descricao": "Jogo de observação e agilidade visual em que todos procuram rapidamente a ameba correta seguindo pistas indicadas pelos dados."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Start ups",
+    "dificuldade": "Difícil",
+    "tempo": "20 min",
+    "jogadores": "3 - 7",
+    "estilo": "Card Game / Investimento",
+    "imagem": "",
+    "descricao": "Jogo de cartas com tema de investimento em que os jogadores disputam participação em empresas e tentam lucrar mais do que os adversários."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "make and break pocket",
+    "dificuldade": "Fácil",
+    "tempo": "15 min",
+    "jogadores": "2 - 5",
+    "estilo": "Habilidade / Destreza",
+    "imagem": "",
+    "descricao": "Jogo de habilidade e velocidade em que os participantes constroem estruturas com blocos ou peças tentando reproduzir desafios antes do tempo acabar."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Scout",
+    "dificuldade": "Difícil",
+    "tempo": "20 min",
+    "jogadores": "2 - 5",
+    "estilo": "Card Game / Gestão de Mão",
+    "imagem": "",
+    "descricao": "Card game premiado de gestão de mão em que os jogadores tentam superar as combinações da mesa sem poder reorganizar as cartas na mão."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "The Builders: Middle Ages",
+    "dificuldade": "Difícil",
+    "tempo": "30 min",
+    "jogadores": "2 - 4",
+    "estilo": "Estratégia / Cartas",
+    "imagem": "",
+    "descricao": "Jogo de cartas e gerenciamento leve em que os jogadores contratam trabalhadores e erguem construções medievais para ganhar pontos."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "O jogo da barata (Póquer de Bichos)",
+    "dificuldade": "Fácil",
+    "tempo": "20 min",
+    "jogadores": "2 - 7",
+    "estilo": "Blefe",
+    "imagem": "",
+    "descricao": "Jogo de blefe em que os participantes passam cartas entre si dizendo o que elas são, tentando enganar os outros e evitar colecionar animais indesejados."
+  },
+  {
+    "responsavel": "Arthur",
+    "jogo": "Perudo (Liar dice)",
+    "dificuldade": "Difícil",
+    "tempo": "40 min",
+    "jogadores": "2 - 7",
+    "estilo": "Blefe / Dados",
+    "imagem": "",
+    "descricao": "Jogo clássico de blefe com dados em que os jogadores fazem apostas sobre resultados escondidos e desafiam a honestidade dos demais."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "Fantasy Realms",
+    "dificuldade": "Difícil",
+    "tempo": "30 min",
+    "jogadores": "3 - 6",
+    "estilo": "Combo de Cartas",
+    "imagem": "",
+    "descricao": "Jogo de combos em que os jogadores montam uma mão poderosa usando sinergias entre cartas para maximizar sua pontuação final."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "Knock Knock Dungeon",
+    "dificuldade": "Difícil",
+    "tempo": "20 min",
+    "jogadores": "1 - 6",
+    "estilo": "Cooperativo Rápido",
+    "imagem": "",
+    "descricao": "Jogo cooperativo rápido de exploração de masmorra em que o grupo enfrenta monstros, toma decisões em conjunto e tenta sobreviver aos desafios."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "Dominó",
+    "dificuldade": "Fácil",
+    "tempo": "10 min",
+    "jogadores": "2 - 4",
+    "estilo": "Clássico",
+    "imagem": "",
+    "descricao": "Clássico jogo de peças em que os jogadores conectam números iguais e tentam se livrar de todas as peças antes dos adversários."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "ITO",
+    "dificuldade": "Fácil",
+    "tempo": "15 - 30 min",
+    "jogadores": "2 - 8",
+    "estilo": "Cooperativo / Números",
+    "imagem": "",
+    "descricao": "Jogo cooperativo de comunicação em que os jogadores precisam ordenar secretamente números usando pistas subjetivas ligadas a um tema da rodada."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "Saboteur",
+    "dificuldade": "Médio",
+    "tempo": "10 - 20 min",
+    "jogadores": "3 - 10",
+    "estilo": "Papéis Ocultos / Labirinto",
+    "imagem": "",
+    "descricao": "Jogo de papéis ocultos em que anões mineradores procuram ouro em túneis, enquanto sabotadores tentam atrapalhar o grupo sem serem descobertos."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "Exploding Kittens",
+    "dificuldade": "Médio",
+    "tempo": "20 min",
+    "jogadores": "2 - 5",
+    "estilo": "Party Game / Sorte",
+    "imagem": "",
+    "descricao": "Party game de cartas em que os jogadores compram cartas tentando evitar o gatinho explosivo, usando efeitos para escapar ou atrapalhar os outros."
+  },
+  {
+    "responsavel": "Raul",
+    "jogo": "Harry Potter: Estupefaça!",
+    "dificuldade": "Difícil",
+    "tempo": "30 min",
+    "jogadores": "4 - 8",
+    "estilo": "Party / Blefe",
+    "imagem": "",
+    "descricao": "Jogo competitivo ambientado no universo Harry Potter, com confrontos, feitiços e blefes entre os participantes."
+  }
+]
