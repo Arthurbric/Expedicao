@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Facilitação de jogos de tabuleiro para eventos com monitoria especializada, pacotes personalizados e catálogo completo." />
+  <title>Ludus Experience | Jogos de Tabuleiro para Eventos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <header class="header" id="topo">
+    <div class="container nav">
+      <a href="#topo" class="logo" aria-label="Ludus Experience">
+        <i class="fa-solid fa-dice"></i>
+        <span>Ludus <strong>Experience</strong></span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="menu">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#pacotes">Pacotes</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="openFavoritesBtn" class="btn btn-outline" type="button">
+          <i class="fa-regular fa-heart"></i>
+          Favoritos
+        </button>
+        <a href="#contato" class="btn btn-primary btn-nav">Solicitar orçamento</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <p class="hero-tag">Eventos com monitoria especializada</p>
+          <h1>Transformamos seu evento em uma experiência divertida com jogos de tabuleiro e monitoria especializada.
+          </h1>
+          <p class="hero-sub">
+            Levamos os jogos, explicamos as regras, organizamos as mesas e acompanhamos cada grupo para garantir
+            integração,
+            diversão e fluidez do início ao fim.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pacotes">Ver pacotes</a>
+            <a class="btn btn-outline" href="#catalogo">Ver catálogo</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <span>♟️</span>
+          <span>🎲</span>
+          <span>🃏</span>
+          <span>🏆</span>
+          <span>👥</span>
+          <span>🧠</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="container">
+        <h2>Quem somos</h2>
+        <p class="section-lead">
+          Somos uma equipe especializada em facilitação de jogos de tabuleiro para festas, aniversários,
+          confraternizações, eventos corporativos e encontros temáticos.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Mais que locação</h3>
+            <p>Não entregamos só jogos. Criamos uma experiência guiada, acolhedora e organizada para todos os perfis.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Monitoria ativa</h3>
+            <p>Explicamos as regras, sugerimos mesas e acompanhamos as partidas para que todo mundo aproveite junto.</p>
+          </article>
+
+          <article class="card">
+            <h3>Personalização real</h3>
+            <p>Adaptamos seleção, dinâmica e ritmo conforme faixa etária, público, objetivo e estilo do evento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section section-alt">
+      <div class="container">
+        <h2>Como funciona</h2>
+
+        <div class="timeline">
+          <article class="step">
+            <span>1</span>
+            <h3>Você fala com a gente</h3>
+            <p>Entendemos data, público, formato e objetivo do evento.</p>
+          </article>
+
+          <article class="step">
+            <span>2</span>
+            <h3>Análise do perfil</h3>
+            <p>Mapeamos se o grupo é iniciante, competitivo, familiar, infantil, adulto ou misto.</p>
+          </article>
+
+          <article class="step">
+            <span>3</span>
+            <h3>Curadoria dos jogos</h3>
+            <p>Selecionamos os títulos ideais e montamos um cardápio personalizado.</p>
+          </article>
+
+          <article class="step">
+            <span>4</span>
+            <h3>Estrutura no local</h3>
+            <p>Levamos os jogos, organizamos as mesas e orientamos toda a dinâmica.</p>
+          </article>
+
+          <article class="step">
+            <span>5</span>
+            <h3>Monitoria e diversão</h3>
+            <p>Explicamos regras, acompanhamos partidas e mantemos o evento fluindo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="pacotes" class="section">
+      <div class="container">
+        <h2>Pacotes de eventos</h2>
+        <p class="section-lead">Pacotes com estrutura profissional e possibilidade de personalização.</p>
+
+        <div class="packages">
+          <article class="package-card">
+            <p class="badge">Pacote 1</p>
+            <h3>PARTY GAME</h3>
+            <p><strong>Ideal para:</strong> festas menores, encontros entre amigos, aniversários e eventos curtos.</p>
+            <ul>
+              <li>2 monitores</li>
+              <li>Até 3 horas</li>
+              <li>Jogos leves, rápidos e para iniciantes</li>
+              <li>Explicação de regras</li>
+              <li>Organização das mesas</li>
+              <li>Cardápio personalizado</li>
+            </ul>
+            <p><strong>Faixa:</strong> R$ 300 a R$ 600</p>
+          </article>
+
+          <article class="package-card featured">
+            <p class="badge">Pacote 2</p>
+            <h3>RIVALS</h3>
+            <p><strong>Ideal para:</strong> eventos médios, confraternizações, corporativos pequenos e temáticos.</p>
+            <ul>
+              <li>2 monitores</li>
+              <li>Até 3 horas</li>
+              <li>8 a 16 jogos</li>
+              <li>Rodízio de mesas</li>
+              <li>Suporte contínuo</li>
+              <li>Pequena personalização</li>
+            </ul>
+            <p><strong>Faixa:</strong> R$ 700 a R$ 1.500</p>
+          </article>
+
+          <article class="package-card">
+            <p class="badge">Pacote 3</p>
+            <h3>DELUXE</h3>
+            <p><strong>Ideal para:</strong> grandes eventos, empresas, casamentos, convenções e ativações.</p>
+            <ul>
+              <li>3+ monitores</li>
+              <li>Consultoria prévia</li>
+              <li>Até 4 horas</li>
+              <li>Ranking e desafios</li>
+              <li>Personalização avançada</li>
+              <li>Dinâmica premium</li>
+            </ul>
+            <p><strong>Faixa:</strong> R$ 1.800 a R$ 4.000+</p>
+          </article>
+        </div>
+
+        <p class="note">Podemos adaptar os pacotes conforme o perfil do seu evento.</p>
+      </div>
+    </section> -->
+
+    <section class="section" id="pacotes">
+      <div class="container">
+        <h2>Pacotes de eventos</h2>
+        <p class="section-subtitle">Todos os pacotes podem ser personalizados conforme seu evento.</p>
+
+        <div class="package-grid">
+          <article class="package-card">
+            <p class="package-number">Pacote 1</p>
+            <h3>Party Game</h3>
+            <p class="ideal">Ideal para festas menores e encontros rápidos (até 25 pessoas).</p>
+            <ul>
+              <li>2 monitores e curadoria de jogos leves</li>
+              <li>Explicação de regras + organização de mesas</li>
+              <li>Duração até 3h e cardápio personalizado</li>
+              <li>Ranking opcional: + R$100</li>
+              <li>Cada 10 pessoas extras: +1 monitor por R$100</li>
+            </ul>
+            <p><strong>Faixa:</strong> R$ 300 a R$ 600 (média de R$ 100/h).</p>
+            <p><strong>Opções:</strong> R$ 300 / 3h (extra R$ 85) ou R$ 125/h.</p>
+            <p class="value-text">Valor percebido: curadoria, animação e suporte para todos aproveitarem.</p>
+          </article>
+
+          <article class="package-card featured">
+            <p class="badge">Mais pedido</p>
+            <p class="package-number">Pacote 2</p>
+            <h3>Rivals</h3>
+            <p class="ideal">Ideal para eventos médios e corporativos menores (até 30 pessoas).</p>
+            <ul>
+              <li>2 monitores e 8 a 16 jogos</li>
+              <li>Rodízio de mesas e suporte contínuo</li>
+              <li>Pequena personalização e seleção antecipada</li>
+              <li>Ranking opcional: + R$100</li>
+              <li>Cada 10 pessoas extras: +1 monitor por R$100</li>
+            </ul>
+            <p><strong>Faixa:</strong> R$ 700 a R$ 1.500 (média de R$ 150/h).</p>
+            <p><strong>Opções:</strong> R$ 500 / 3h (extra R$ 185) ou R$ 175/h.</p>
+            <p class="value-text">Mais variedade, estrutura e atenção ao público.</p>
+          </article>
+
+          <article class="package-card">
+            <p class="package-number">Pacote 3</p>
+            <h3>Deluxe</h3>
+            <p class="ideal">Ideal para grandes eventos, empresas e ativações premium.</p>
+            <ul>
+              <li>3+ monitores e seleção completa por perfil</li>
+              <li>Consultoria prévia e personalização total</li>
+              <li>Campeonato, desafios e ranking incluso</li>
+              <li>Duração até 4h e roadmap de jogo</li>
+              <li>Cada 10 pessoas extras: +1 monitor por R$80</li>
+            </ul>
+            <p><strong>Faixa:</strong> R$ 1.800 a R$ 4.000+.</p>
+            <p class="value-text">Experiência premium com entretenimento guiado e dinâmica exclusiva.</p>
+          </article>
+        </div>
+
+        <p class="note">
+          Podemos adaptar os pacotes conforme o perfil do seu evento. Se houver
+          interesse em jogos específicos que ainda não temos, avaliamos a
+          viabilidade sem problemas.
+        </p>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section section-alt">
+      <div class="container">
+        <h2>Catálogo de jogos</h2>
+        <p class="section-lead">Busque por nome e filtre por perfil para montar sua experiência ideal.</p>
+
+        <form class="filters" aria-label="Filtros do catálogo" onsubmit="return false;">
+          <label>
+            <span>Buscar jogo</span>
+            <input type="search" id="searchInput" placeholder="Ex.: Carcassonne" />
+          </label>
+
+          <label>
+            <span>Dificuldade</span>
+            <select id="difficultyFilter">
+              <option value="">Todas</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Tempo</span>
+            <select id="timeFilter">
+              <option value="">Todos</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Jogadores</span>
+            <select id="playersFilter">
+              <option value="">Todos</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Estilo</span>
+            <select id="styleFilter">
+              <option value="">Todos</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Responsável</span>
+            <select id="ownerFilter">
+              <option value="">Todos</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="catalog-toolbar">
+          <p id="catalogInfo" class="catalog-info" aria-live="polite"></p>
+          <div class="toolbar-actions">
+            <button id="showOnlyFavoritesBtn" class="btn btn-outline btn-small" type="button">Só favoritos</button>
+            <button id="clearFiltersBtn" class="btn btn-outline btn-small" type="button">Limpar filtros</button>
+          </div>
+        </div>
+
+        <div id="catalogGrid" class="catalog-grid"></div>
+
+        <div class="cta-box">
+          <p><strong>Não encontrou o jogo que queria?</strong> Fale com a gente e vamos avaliar a disponibilidade.</p>
+          <a class="btn btn-primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">Falar
+            no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-cols">
+        <div>
+          <h2>Personalização do catálogo</h2>
+          <p>
+            Selecionamos os jogos conforme o objetivo do evento e o perfil do público.
+            Podemos montar cardápios para iniciantes, crianças, adultos, grupos competitivos ou cooperativos.
+          </p>
+          <p>
+            Alguns títulos podem depender de disponibilidade. Se você quiser jogos específicos,
+            nossa equipe avalia a possibilidade e propõe alternativas equivalentes.
+          </p>
+        </div>
+
+        <div class="card soft">
+          <h3>Eventos que atendemos</h3>
+          <ul>
+            <li>Aniversários e festas particulares</li>
+            <li>Confraternizações e encontros temáticos</li>
+            <li>Eventos corporativos e integração de equipes</li>
+            <li>Casamentos, convenções e ativações de marca</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2>Depoimentos</h2>
+        <div class="grid-3">
+          <blockquote class="card quote">“Todo mundo adorou. Até quem nunca tinha jogado entrou na brincadeira.”
+          </blockquote>
+          <blockquote class="card quote">“A organização e a explicação dos jogos fizeram toda a diferença.”</blockquote>
+          <blockquote class="card quote">“Foi perfeito para integração da equipe.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <div class="container contact-layout">
+        <div>
+          <h2>Solicite seu orçamento</h2>
+          <p class="section-lead">Converse conosco sobre os pacotes. Podemos adaptar o modelo ideal para o seu evento.
+          </p>
+          <a class="btn btn-primary" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">Falar
+            no WhatsApp</a>
+        </div>
+
+        <form class="contact-form" aria-label="Formulário de contato">
+          <label>Nome<input required type="text" name="nome" /></label>
+          <label>Telefone/WhatsApp<input required type="tel" name="telefone" /></label>
+          <label>E-mail<input required type="email" name="email" /></label>
+          <label>Tipo de evento<input type="text" name="tipo_evento" /></label>
+          <label>Quantidade de pessoas<input type="number" min="1" name="quantidade" /></label>
+          <label>Data<input type="date" name="data" /></label>
+          <label class="full">Mensagem<textarea name="mensagem" rows="4"
+              placeholder="Conte sobre o seu evento"></textarea></label>
+          <button type="submit" class="btn btn-primary full">Solicitar orçamento</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Ludus Experience</h3>
+        <p>Jogos de tabuleiro com facilitação profissional para eventos memoráveis.</p>
+      </div>
+
+      <div>
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <a href="mailto:contato@ludusexperience.com.br">contato@ludusexperience.com.br</a>
+        <a href="tel:+5500000000000">(00) 00000-0000</a>
+      </div>
+
+      <div>
+        <h4>Redes sociais</h4>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 Ludus Experience. Diversão estratégica para eventos com personalidade.</p>
+  </footer>
+
+  <a href="https://wa.me/5500000000000" class="whatsapp-float" aria-label="Falar no WhatsApp" target="_blank"
+    rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <div id="gameModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay" data-close-modal="true"></div>
+    <div class="modal-content modal-large" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModalBtn" class="modal-close" type="button" aria-label="Fechar">×</button>
+
+      <div class="modal-body">
+        <div class="modal-image-wrap">
+          <img id="modalImage" class="modal-image" src="" alt="" />
+        </div>
+
+        <div class="modal-info">
+          <p id="modalOwner" class="modal-owner"></p>
+          <h3 id="modalTitle"></h3>
+          <div id="modalMeta" class="meta"></div>
+          <p id="modalDescription" class="modal-description"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="favoritesModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay" data-close-favorites="true"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="favoritesTitle">
+      <button id="closeFavoritesBtn" class="modal-close" type="button" aria-label="Fechar">×</button>
+
+      <div class="favorites-box">
+        <h3 id="favoritesTitle">Jogos favoritos</h3>
+        <p class="favorites-sub">Os jogos curtidos pelos visitantes vão aparecer aqui.</p>
+
+        <div id="favoritesList" class="favorites-list"></div>
+
+        <div class="favorites-actions">
+          <button id="clearFavoritesBtn" class="btn btn-outline" type="button">Limpar favoritos</button>
+          <a id="sendFavoritesWhatsappBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">
+            Enviar favoritos no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js" defer></script>
+</body>
+
+</html>
