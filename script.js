@@ -2,6 +2,8 @@ const state = {
   games: [],
   filtered: [],
   showOnlyFavorites: false,
+  activeSlide: 0,
+  sliderInterval: null,
 };
 
 const els = {
@@ -30,10 +32,75 @@ const els = {
   favoritesList: document.getElementById("favoritesList"),
   clearFavoritesBtn: document.getElementById("clearFavoritesBtn"),
   sendFavoritesWhatsappBtn: document.getElementById("sendFavoritesWhatsappBtn"),
+  themeToggleBtn: document.getElementById("themeToggleBtn"),
+  showcaseSlider: document.getElementById("showcaseSlider"),
+  showcaseDots: document.querySelectorAll(".showcase-dot"),
 };
 
 const whatsappNumber = "5500000000000";
 const favorites = new Set(JSON.parse(localStorage.getItem("favoriteGames") || "[]"));
+const THEME_STORAGE_KEY = "preferredTheme";
+
+function updateThemeToggleLabel(theme) {
+  if (!els.themeToggleBtn) return;
+  const icon = theme === "light" ? "fa-regular fa-moon" : "fa-regular fa-sun";
+  const label = theme === "light" ? "Tema escuro" : "Tema claro";
+
+  els.themeToggleBtn.innerHTML = `<i class="${icon}"></i>${label}`;
+}
+
+function applyTheme(theme) {
+  const normalizedTheme = theme === "light" ? "light" : "dark";
+  document.body.setAttribute("data-theme", normalizedTheme);
+  localStorage.setItem(THEME_STORAGE_KEY, normalizedTheme);
+  updateThemeToggleLabel(normalizedTheme);
+}
+
+function setupTheme() {
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  const initialTheme = savedTheme || (prefersLight ? "light" : "dark");
+
+  applyTheme(initialTheme);
+
+  els.themeToggleBtn?.addEventListener("click", () => {
+    const currentTheme = document.body.getAttribute("data-theme");
+    applyTheme(currentTheme === "light" ? "dark" : "light");
+  });
+}
+
+function showSlide(index) {
+  if (!els.showcaseSlider || !els.showcaseDots.length) return;
+  const slides = els.showcaseSlider.querySelectorAll(".showcase-slide");
+
+  state.activeSlide = (index + slides.length) % slides.length;
+
+  slides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("active", slideIndex === state.activeSlide);
+  });
+
+  els.showcaseDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("active", dotIndex === state.activeSlide);
+  });
+}
+
+function setupShowcase() {
+  if (!els.showcaseSlider || !els.showcaseDots.length) return;
+
+  showSlide(0);
+
+  els.showcaseDots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      showSlide(dotIndex);
+      if (state.sliderInterval) {
+        clearInterval(state.sliderInterval);
+      }
+      state.sliderInterval = setInterval(() => showSlide(state.activeSlide + 1), 5500);
+    });
+  });
+
+  state.sliderInterval = setInterval(() => showSlide(state.activeSlide + 1), 5500);
+}
 
 function normalize(value = "") {
   return value.toString().trim().toLowerCase();
@@ -459,3 +526,5 @@ async function initCatalog() {
 }
 
 window.addEventListener("DOMContentLoaded", initCatalog);
+window.addEventListener("DOMContentLoaded", setupTheme);
+window.addEventListener("DOMContentLoaded", setupShowcase);

@@ -34,6 +34,10 @@
       </nav>
 
       <div class="header-actions">
+        <button id="themeToggleBtn" class="btn btn-outline" type="button" aria-label="Alternar tema">
+          <i class="fa-regular fa-sun"></i>
+          Tema claro
+        </button>
         <button id="openFavoritesBtn" class="btn btn-outline" type="button">
           <i class="fa-regular fa-heart"></i>
           Favoritos
@@ -44,6 +48,39 @@
   </header>
 
   <main>
+    <section class="showcase section">
+      <div class="container">
+        <div class="showcase-slider" id="showcaseSlider" aria-label="Destaques dos eventos">
+          <article class="showcase-slide active">
+            <p class="showcase-chip">Experiência completa</p>
+            <h2>Seu evento com jogos selecionados, mediação ativa e diversão do começo ao fim.</h2>
+            <p>Levamos estrutura, conduzimos as mesas e criamos uma jornada envolvente para todos os perfis.</p>
+            <a class="btn btn-primary" href="#contato">Montar meu evento</a>
+          </article>
+
+          <article class="showcase-slide">
+            <p class="showcase-chip">Para empresas e equipes</p>
+            <h2>Integração, colaboração e competição saudável em um formato elegante.</h2>
+            <p>Ideal para confraternizações, team building e ativações com momentos memoráveis.</p>
+            <a class="btn btn-primary" href="#pacotes">Conhecer pacotes</a>
+          </article>
+
+          <article class="showcase-slide">
+            <p class="showcase-chip">Catálogo sob medida</p>
+            <h2>Do iniciante ao jogador experiente: curadoria inteligente para seu público.</h2>
+            <p>Você escolhe o estilo da experiência e nós cuidamos da seleção, explicação e dinâmica.</p>
+            <a class="btn btn-primary" href="#catalogo">Explorar catálogo</a>
+          </article>
+        </div>
+
+        <div class="showcase-controls" role="tablist" aria-label="Navegação dos destaques">
+          <button class="showcase-dot active" type="button" data-slide-index="0" aria-label="Ver destaque 1"></button>
+          <button class="showcase-dot" type="button" data-slide-index="1" aria-label="Ver destaque 2"></button>
+          <button class="showcase-dot" type="button" data-slide-index="2" aria-label="Ver destaque 3"></button>
+        </div>
+      </div>
+    </section>
+
     <section class="hero">
       <div class="container hero-content">
         <div>
