@@ -116,6 +116,39 @@ function escapeHtml(text = "") {
     .replaceAll("'", "&#039;");
 }
 
+function parsePlayersRange(playersText = "") {
+  return parseNumericRange(playersText);
+}
+
+function parseTimeRange(timeText = "") {
+  return parseNumericRange(timeText);
+}
+
+function parseNumericRange(rawText = "") {
+  const normalized = normalize(rawText);
+
+  if (!normalized) {
+    return null;
+  }
+
+  const numbers = normalized.match(/\d+/g)?.map(Number) || [];
+
+  if (!numbers.length) {
+    return null;
+  }
+
+  if (normalized.includes("+")) {
+    return { min: numbers[0], max: Number.POSITIVE_INFINITY };
+  }
+
+  if (numbers.length >= 2) {
+    const [first, second] = numbers;
+    return { min: Math.min(first, second), max: Math.max(first, second) };
+  }
+
+  return { min: numbers[0], max: numbers[0] };
+}
+
 function safeOptions(data, key) {
   return [...new Set(data.map((item) => item[key]).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
@@ -412,15 +445,25 @@ function applyFilters() {
   const searchTerm = normalize(els.search.value);
   const difficultyTerm = normalize(els.difficulty.value);
   const timeTerm = normalize(els.time.value);
+  const timeMinutes = Number.parseInt(timeTerm, 10);
+  const hasTimeFilter = Number.isInteger(timeMinutes) && timeMinutes > 0;
   const playersTerm = normalize(els.players.value);
+  const playersCount = Number.parseInt(playersTerm, 10);
+  const hasPlayersCountFilter = Number.isInteger(playersCount) && playersCount > 0;
   const styleTerm = normalize(els.style.value);
   const ownerTerm = normalize(els.owner.value);
 
   state.filtered = state.games.filter((game) => {
     const matchesSearch = normalize(game.jogo).includes(searchTerm);
     const matchesDifficulty = !difficultyTerm || normalize(game.dificuldade) === difficultyTerm;
-    const matchesTime = !timeTerm || normalize(game.tempo) === timeTerm;
-    const matchesPlayers = !playersTerm || normalize(game.jogadores) === playersTerm;
+    const gameTime = parseTimeRange(game.tempo);
+    const matchesTime =
+      !hasTimeFilter ||
+      (gameTime && timeMinutes >= gameTime.min && timeMinutes <= gameTime.max);
+    const gamePlayers = parsePlayersRange(game.jogadores);
+    const matchesPlayers =
+      !hasPlayersCountFilter ||
+      (gamePlayers && playersCount >= gamePlayers.min && playersCount <= gamePlayers.max);
     const matchesStyle = !styleTerm || normalize(game.estilo) === styleTerm;
     const matchesOwner = !ownerTerm || normalize(game.responsavel) === ownerTerm;
     const matchesFavorite = !state.showOnlyFavorites || favorites.has(getGameId(game));
@@ -441,8 +484,6 @@ function applyFilters() {
 
 function setupFilters() {
   injectOptions(els.difficulty, safeOptions(state.games, "dificuldade"));
-  injectOptions(els.time, safeOptions(state.games, "tempo"));
-  injectOptions(els.players, safeOptions(state.games, "jogadores"));
   injectOptions(els.style, safeOptions(state.games, "estilo"));
   injectOptions(els.owner, safeOptions(state.games, "responsavel"));
 
