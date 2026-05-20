@@ -117,6 +117,39 @@ function escapeHtml(text = "") {
 }
 
 function parsePlayersRange(playersText = "") {
+  return parseNumericRange(playersText);
+}
+
+function parseTimeRange(timeText = "") {
+  return parseNumericRange(timeText);
+}
+
+function parseNumericRange(rawText = "") {
+  const normalized = normalize(rawText);
+
+  if (!normalized) {
+    return null;
+  }
+
+  const numbers = normalized.match(/\d+/g)?.map(Number) || [];
+
+  if (!numbers.length) {
+    return null;
+  }
+
+  if (normalized.includes("+")) {
+    return { min: numbers[0], max: Number.POSITIVE_INFINITY };
+  }
+
+  if (numbers.length >= 2) {
+    const [first, second] = numbers;
+    return { min: Math.min(first, second), max: Math.max(first, second) };
+  }
+
+  return { min: numbers[0], max: numbers[0] };
+}
+
+function parsePlayersRange(playersText = "") {
   const normalized = normalize(playersText);
 
   if (!normalized) {
