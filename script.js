@@ -149,6 +149,52 @@ function parseNumericRange(rawText = "") {
   return { min: numbers[0], max: numbers[0] };
 }
 
+function parsePlayersRange(playersText = "") {
+  const normalized = normalize(playersText);
+
+  if (!normalized) {
+    return null;
+  }
+
+  const numbers = normalized.match(/\d+/g)?.map(Number) || [];
+
+  if (!numbers.length) {
+    return null;
+  }
+
+  if (normalized.includes("+")) {
+    return { min: numbers[0], max: Number.POSITIVE_INFINITY };
+  }
+
+  if (numbers.length >= 2) {
+    const [first, second] = numbers;
+    return { min: Math.min(first, second), max: Math.max(first, second) };
+  }
+
+  return { min: numbers[0], max: numbers[0] };
+}
+
+function parseTimeRange(timeText = "") {
+  const normalized = normalize(timeText);
+
+  if (!normalized) {
+    return null;
+  }
+
+  const numbers = normalized.match(/\d+/g)?.map(Number) || [];
+
+  if (!numbers.length) {
+    return null;
+  }
+
+  if (numbers.length >= 2) {
+    const [first, second] = numbers;
+    return { min: Math.min(first, second), max: Math.max(first, second) };
+  }
+
+  return { min: numbers[0], max: numbers[0] };
+}
+
 function safeOptions(data, key) {
   return [...new Set(data.map((item) => item[key]).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
