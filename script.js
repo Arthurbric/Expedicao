@@ -1,3 +1,9 @@
+/*
+ * script.js — lógica principal do site: catálogo de jogos (carregado de data/games.json),
+ * filtros, favoritos (salvos no localStorage), modais, tema claro/escuro e slider de destaques.
+ */
+
+// Estado global da página: lista completa, lista filtrada e controle do slider.
 const state = {
   games: [],
   filtered: [],
@@ -6,6 +12,7 @@ const state = {
   sliderInterval: null,
 };
 
+// Referências aos elementos do DOM usados pelo script (buscadas uma única vez).
 const els = {
   grid: document.getElementById("catalogGrid"),
   info: document.getElementById("catalogInfo"),
@@ -37,10 +44,13 @@ const els = {
   showcaseDots: document.querySelectorAll(".showcase-dot"),
 };
 
+// Número de WhatsApp usado ao enviar favoritos (placeholder: trocar pelo número real).
 const whatsappNumber = "5500000000000";
+// Favoritos persistem entre visitas; o Set evita duplicados.
 const favorites = new Set(JSON.parse(localStorage.getItem("favoriteGames") || "[]"));
 const THEME_STORAGE_KEY = "preferredTheme";
 
+// Atualiza ícone e texto do botão de tema conforme o tema ativo.
 function updateThemeToggleLabel(theme) {
   if (!els.themeToggleBtn) return;
   const icon = theme === "light" ? "fa-regular fa-moon" : "fa-regular fa-sun";
@@ -49,6 +59,7 @@ function updateThemeToggleLabel(theme) {
   els.themeToggleBtn.innerHTML = `<i class="${icon}"></i>${label}`;
 }
 
+// Aplica o tema no <body> (via data-theme, lido pelo CSS) e salva a escolha.
 function applyTheme(theme) {
   const normalizedTheme = theme === "light" ? "light" : "dark";
   document.body.setAttribute("data-theme", normalizedTheme);
@@ -56,6 +67,7 @@ function applyTheme(theme) {
   updateThemeToggleLabel(normalizedTheme);
 }
 
+// Define o tema inicial (preferência salva > preferência do sistema) e liga o botão de alternar.
 function setupTheme() {
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
   const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
@@ -69,6 +81,7 @@ function setupTheme() {
   });
 }
 
+// Mostra o slide do índice informado (com volta circular) e sincroniza as bolinhas.
 function showSlide(index) {
   if (!els.showcaseSlider || !els.showcaseDots.length) return;
   const slides = els.showcaseSlider.querySelectorAll(".showcase-slide");
@@ -84,6 +97,7 @@ function showSlide(index) {
   });
 }
 
+// Slider de destaques: troca automática a cada 5,5s; clicar numa bolinha reinicia o temporizador.
 function setupShowcase() {
   if (!els.showcaseSlider || !els.showcaseDots.length) return;
 
@@ -102,10 +116,12 @@ function setupShowcase() {
   state.sliderInterval = setInterval(() => showSlide(state.activeSlide + 1), 5500);
 }
 
+// Padroniza texto (string, minúsculas, sem espaços nas pontas) para comparações nos filtros.
 function normalize(value = "") {
   return value.toString().trim().toLowerCase();
 }
 
+// Escapa caracteres especiais para inserir texto do JSON em innerHTML com segurança (evita XSS).
 function escapeHtml(text = "") {
   return text
     .toString()
@@ -116,6 +132,8 @@ function escapeHtml(text = "") {
     .replaceAll("'", "&#039;");
 }
 
+// ATENÇÃO: parsePlayersRange e parseTimeRange são declaradas duas vezes neste arquivo.
+// Em JavaScript vale a ÚLTIMA definição (mais abaixo); esta primeira versão é sobrescrita.
 function parsePlayersRange(playersText = "") {
   return parseNumericRange(playersText);
 }
@@ -124,6 +142,7 @@ function parseTimeRange(timeText = "") {
   return parseNumericRange(timeText);
 }
 
+// Converte textos como "2 - 6", "3+" ou "30 min" em { min, max }; "+" significa sem limite máximo.
 function parseNumericRange(rawText = "") {
   const normalized = normalize(rawText);
 
@@ -149,6 +168,7 @@ function parseNumericRange(rawText = "") {
   return { min: numbers[0], max: numbers[0] };
 }
 
+// Definição VÁLIDA de parsePlayersRange (a última no arquivo): faixa de jogadores, aceita "3+" (sem máximo).
 function parsePlayersRange(playersText = "") {
   const normalized = normalize(playersText);
 
@@ -174,6 +194,7 @@ function parsePlayersRange(playersText = "") {
   return { min: numbers[0], max: numbers[0] };
 }
 
+// Definição VÁLIDA de parseTimeRange (a última no arquivo): faixa de minutos; não trata "+" de propósito.
 function parseTimeRange(timeText = "") {
   const normalized = normalize(timeText);
 
@@ -195,11 +216,13 @@ function parseTimeRange(timeText = "") {
   return { min: numbers[0], max: numbers[0] };
 }
 
+// Lista valores únicos e ordenados de um campo (ex.: dificuldade) para montar os <select>.
 function safeOptions(data, key) {
   return [...new Set(data.map((item) => item[key]).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
 }
 
+// Cria as <option> dentro do select, preservando o valor já selecionado.
 function injectOptions(select, options) {
   const current = select.value;
 
@@ -213,6 +236,7 @@ function injectOptions(select, options) {
   select.value = current;
 }
 
+// Cria um bloco colorido com a 1ª palavra do nome quando a capa não existe ou falha ao carregar.
 function createPlaceholder(name = "Jogo") {
   const div = document.createElement("div");
   div.className = "game-image-placeholder";
@@ -222,14 +246,17 @@ function createPlaceholder(name = "Jogo") {
   return div;
 }
 
+// Grava os favoritos no localStorage (chave lida também pelo effects.js para o e-mail do formulário).
 function saveFavorites() {
   localStorage.setItem("favoriteGames", JSON.stringify([...favorites]));
 }
 
+// Identificador do jogo nos favoritos: o próprio nome (por isso nomes no JSON devem ser únicos).
 function getGameId(game) {
   return game.jogo;
 }
 
+// Monta o link wa.me com a lista numerada dos jogos favoritos como mensagem.
 function buildWhatsappLink() {
   const favoriteGames = state.games.filter((game) => favorites.has(getGameId(game)));
 
@@ -246,10 +273,12 @@ function buildWhatsappLink() {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textLines.join("\n"))}`;
 }
 
+// Atualiza o href do botão "Enviar favoritos no WhatsApp".
 function updateWhatsappButton() {
   els.sendFavoritesWhatsappBtn.href = buildWhatsappLink();
 }
 
+// Sincroniza o coração (cheio/vazio) de todos os cards visíveis com o conjunto de favoritos.
 function updateFavoriteButtonsUI() {
   document.querySelectorAll(".favorite-btn").forEach((button) => {
     const gameId = button.dataset.favorite;
@@ -261,6 +290,7 @@ function updateFavoriteButtonsUI() {
   });
 }
 
+// Desenha a lista do modal de favoritos (miniatura, nome, estilo e botão remover).
 function renderFavoritesList() {
   const favoriteGames = state.games.filter((game) => favorites.has(getGameId(game)));
   els.favoritesList.innerHTML = "";
@@ -333,6 +363,7 @@ function renderFavoritesList() {
   updateWhatsappButton();
 }
 
+// Abre o modal de favoritos e trava a rolagem da página.
 function openFavoritesModal() {
   renderFavoritesList();
   els.favoritesModal.classList.remove("hidden");
@@ -340,12 +371,14 @@ function openFavoritesModal() {
   document.body.style.overflow = "hidden";
 }
 
+// Fecha o modal de favoritos e libera a rolagem.
 function closeFavoritesModal() {
   els.favoritesModal.classList.add("hidden");
   els.favoritesModal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
 
+// Abre o modal de detalhes do jogo (capa, responsável, metadados e descrição).
 function openGameModal(game) {
   if (game.imagem) {
     els.modalImage.src = game.imagem;
@@ -374,12 +407,14 @@ function openGameModal(game) {
   document.body.style.overflow = "hidden";
 }
 
+// Fecha o modal de detalhes do jogo.
 function closeGameModal() {
   els.modal.classList.add("hidden");
   els.modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
 
+// Se a imagem remota falhar, troca por um placeholder em vez de deixar o card quebrado.
 function attachImageFallback(img, gameName) {
   img.addEventListener("error", () => {
     const placeholder = createPlaceholder(gameName);
@@ -387,6 +422,7 @@ function attachImageFallback(img, gameName) {
   });
 }
 
+// Redesenha a grade do catálogo com a lista recebida: cria os cards e liga clique, teclado e favoritar.
 function renderGames(data) {
   els.grid.innerHTML = "";
 
@@ -487,6 +523,7 @@ function renderGames(data) {
   });
 }
 
+// Aplica busca, selects, tempo/jogadores (número dentro da faixa do jogo) e "só favoritos", depois redesenha.
 function applyFilters() {
   const searchTerm = normalize(els.search.value);
   const difficultyTerm = normalize(els.difficulty.value);
@@ -528,6 +565,7 @@ function applyFilters() {
   renderGames(state.filtered);
 }
 
+// Preenche os selects com valores do JSON e liga eventos de filtros, limpar, favoritos, modais e tecla Esc.
 function setupFilters() {
   injectOptions(els.difficulty, safeOptions(state.games, "dificuldade"));
   injectOptions(els.style, safeOptions(state.games, "estilo"));
@@ -593,6 +631,7 @@ function setupFilters() {
   });
 }
 
+// Carrega data/games.json e inicializa o catálogo; em caso de erro mostra uma mensagem na tela.
 async function initCatalog() {
   try {
     const response = await fetch("./data/games.json");
@@ -612,6 +651,7 @@ async function initCatalog() {
   }
 }
 
+// Inicialização quando o DOM estiver pronto.
 window.addEventListener("DOMContentLoaded", initCatalog);
 window.addEventListener("DOMContentLoaded", setupTheme);
 window.addEventListener("DOMContentLoaded", setupShowcase);

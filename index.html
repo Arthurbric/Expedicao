@@ -14,9 +14,52 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="icon" href="https://img.icons8.com/?size=100&id=pAfopMIn7Fva&format=png&color=000000" type="image/png">
   <link rel="stylesheet" href="./style.css" />
+  <!-- Sem JavaScript o loader nunca terminaria, então ele é escondido -->
+  <noscript><style>.loader { display: none !important; } body.is-loading { overflow: auto !important; }</style></noscript>
 </head>
 
-<body>
+<body class="is-loading">
+  <!-- ===== TELA DE CARREGAMENTO: dado 3D (CSS), frases divertidas e barra de progresso ===== -->
+  <div class="loader" id="pageLoader" role="status" aria-live="polite" aria-label="Carregando o site">
+    <!-- Cortinas que se abrem quando o carregamento termina -->
+    <div class="loader-curtain loader-curtain-top"></div>
+    <div class="loader-curtain loader-curtain-bottom"></div>
+
+    <!-- Peças flutuando ao fundo do loader -->
+    <span class="loader-float lf-1" aria-hidden="true">♟️</span>
+    <span class="loader-float lf-2" aria-hidden="true">🃏</span>
+    <span class="loader-float lf-3" aria-hidden="true">🏆</span>
+    <span class="loader-float lf-4" aria-hidden="true">🧠</span>
+    <span class="loader-float lf-5" aria-hidden="true">🎲</span>
+
+    <div class="loader-center">
+      <!-- Dado 3D feito só com CSS: 6 faces com pontinhos posicionados em grade 3x3 -->
+      <div class="loader-scene" aria-hidden="true">
+        <div class="dice">
+          <div class="dice-face face-1"><i class="p-c"></i></div>
+          <div class="dice-face face-2"><i class="p-tl"></i><i class="p-br"></i></div>
+          <div class="dice-face face-3"><i class="p-tl"></i><i class="p-c"></i><i class="p-br"></i></div>
+          <div class="dice-face face-4"><i class="p-tl"></i><i class="p-tr"></i><i class="p-bl"></i><i class="p-br"></i></div>
+          <div class="dice-face face-5"><i class="p-tl"></i><i class="p-tr"></i><i class="p-c"></i><i class="p-bl"></i><i class="p-br"></i></div>
+          <div class="dice-face face-6"><i class="p-tl"></i><i class="p-tr"></i><i class="p-ml"></i><i class="p-mr"></i><i class="p-bl"></i><i class="p-br"></i></div>
+        </div>
+        <span class="loader-shadow"></span>
+      </div>
+
+      <p class="loader-brand">Ludus <strong>Experience</strong></p>
+      <p class="loader-phrase" id="loaderPhrase">Embaralhando as cartas...</p>
+      <div class="loader-bar" aria-hidden="true"><span id="loaderBarFill"></span></div>
+      <p class="loader-percent" id="loaderPercent">0%</p>
+    </div>
+  </div>
+
+  <!-- Barra de progresso da rolagem (controlada em effects.js) -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Cena 3D de fundo (Three.js): dados, cartas, peões e fichas flutuando (scene3d.js) -->
+  <canvas class="scene3d" id="scene3d" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
   <header class="header" id="topo">
     <div class="container nav">
       <a href="#topo" class="logo" aria-label="Ludus Experience">
@@ -35,6 +78,10 @@
       </nav>
 
       <div class="header-actions">
+        <button id="soundToggleBtn" class="btn btn-outline btn-icon" type="button" aria-pressed="false"
+          aria-label="Ativar sons do site" title="Sons do site">
+          <i class="fa-solid fa-volume-xmark"></i>
+        </button>
         <button id="themeToggleBtn" class="btn btn-outline" type="button" aria-label="Alternar tema">
           <i class="fa-regular fa-sun"></i>
           Tema claro
@@ -44,9 +91,29 @@
           Favoritos
         </button>
         <a href="#contato" class="btn btn-primary btn-nav">Solicitar orçamento</a>
+
+        <!-- Botão hambúrguer: só aparece em telas menores (abre o menu lateral) -->
+        <button id="menuToggleBtn" class="btn btn-outline btn-icon menu-toggle" type="button"
+          aria-expanded="false" aria-controls="mobileDrawer" aria-label="Abrir menu">
+          <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- ===== MENU LATERAL (CELULAR/TABLET) ===== -->
+  <div class="drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer="true"></div>
+    <nav class="drawer-panel" aria-label="Menu para celular">
+      <p class="drawer-title"><i class="fa-solid fa-dice"></i> Ludus <strong>Experience</strong></p>
+      <a href="#sobre"><i class="fa-solid fa-users"></i> Sobre</a>
+      <a href="#como-funciona"><i class="fa-solid fa-route"></i> Como funciona</a>
+      <a href="#pacotes"><i class="fa-solid fa-box-open"></i> Pacotes</a>
+      <a href="#catalogo"><i class="fa-solid fa-chess-board"></i> Catálogo</a>
+      <a href="#contato"><i class="fa-solid fa-envelope"></i> Contato</a>
+      <a href="#contato" class="btn btn-primary drawer-cta">Solicitar orçamento</a>
+    </nav>
+  </div>
 
   <main>
     <section class="showcase section">
@@ -107,6 +174,28 @@
           <span>👥</span>
           <span>🧠</span>
         </div>
+      </div>
+    </section>
+
+    <!-- Faixa rolando com nomes de jogos do catálogo (animação em CSS, a segunda cópia fecha o loop) -->
+    <div class="marquee" aria-label="Alguns jogos do nosso catálogo">
+      <div class="marquee-track">
+        <span>🎲 Trio</span><span>🃏 Bang!</span><span>🏰 Carcassonne</span><span>🚂 Ticket to Ride</span>
+        <span>🐺 Werewolf</span><span>🧩 Dobble</span><span>⏳ Timeline</span><span>💎 Jaipur</span>
+        <span>🔍 Codenames</span><span>🎭 Avalon</span><span>🐱 Exploding Kittens</span><span>🎪 Scout</span>
+        <span aria-hidden="true">🎲 Trio</span><span aria-hidden="true">🃏 Bang!</span><span aria-hidden="true">🏰 Carcassonne</span><span aria-hidden="true">🚂 Ticket to Ride</span>
+        <span aria-hidden="true">🐺 Werewolf</span><span aria-hidden="true">🧩 Dobble</span><span aria-hidden="true">⏳ Timeline</span><span aria-hidden="true">💎 Jaipur</span>
+        <span aria-hidden="true">🔍 Codenames</span><span aria-hidden="true">🎭 Avalon</span><span aria-hidden="true">🐱 Exploding Kittens</span><span aria-hidden="true">🎪 Scout</span>
+      </div>
+    </div>
+
+    <!-- Números do site (contam de 0 até o valor quando aparecem na tela; "jogos" vem do games.json) -->
+    <section class="stats" aria-label="Números do Ludus Experience">
+      <div class="container stats-grid">
+        <div class="stat"><strong data-count="0" id="statGames">0</strong><span>jogos no catálogo</span></div>
+        <div class="stat"><strong data-count="3">0</strong><span>pacotes de evento</span></div>
+        <div class="stat"><strong data-count="5">0</strong><span>etapas simples</span></div>
+        <div class="stat"><strong data-count="4" data-suffix="h">0</strong><span>de diversão (Deluxe)</span></div>
       </div>
     </section>
 
@@ -418,16 +507,26 @@
             no WhatsApp</a>
         </div>
 
-        <form class="contact-form" aria-label="Formulário de contato">
-          <label>Nome<input required type="text" name="nome" /></label>
-          <label>Telefone/WhatsApp<input required type="tel" name="telefone" /></label>
-          <label>E-mail<input required type="email" name="email" /></label>
-          <label>Tipo de evento<input type="text" name="tipo_evento" /></label>
-          <label>Quantidade de pessoas<input type="number" min="1" name="quantidade" /></label>
+        <form class="contact-form" id="contactForm" aria-label="Formulário de contato" novalidate
+          action="https://formsubmit.co/ajax/arthurarash.bric@gmail.com" method="POST">
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="Novo pedido de orçamento - Ludus Experience" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="jogos_favoritos" id="favoritesField" value="" />
+
+          <label>Nome<input required type="text" name="nome" autocomplete="name" /></label>
+          <label>Telefone/WhatsApp<input required type="tel" name="telefone" autocomplete="tel" /></label>
+          <label>E-mail<input required type="email" name="email" autocomplete="email" /></label>
+          <label>Tipo de evento<input type="text" name="tipo_evento" placeholder="Aniversário, empresa..." /></label>
+          <label>Quantidade de pessoas<input type="number" min="1" name="quantidade" inputmode="numeric" /></label>
           <label>Data<input type="date" name="data" /></label>
-          <label class="full">Mensagem<textarea name="mensagem" rows="4"
+          <label class="full">Mensagem<textarea name="mensagem" rows="4" maxlength="1500"
               placeholder="Conte sobre o seu evento"></textarea></label>
-          <button type="submit" class="btn btn-primary full">Solicitar orçamento</button>
+          <button type="submit" class="btn btn-primary full" id="contactSubmitBtn">
+            <span class="btn-label"><i class="fa-regular fa-paper-plane"></i> Solicitar orçamento</span>
+          </button>
+          <p class="form-status full" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -470,6 +569,18 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ===== BARRA INFERIOR ESTILO APLICATIVO (só no celular) ===== -->
+  <nav class="bottom-nav" aria-label="Atalhos rápidos">
+    <a href="#topo" data-tab="topo"><i class="fa-solid fa-house"></i><span>Início</span></a>
+    <a href="#catalogo" data-tab="catalogo"><i class="fa-solid fa-chess-board"></i><span>Catálogo</span></a>
+    <button type="button" id="bottomFavoritesBtn"><i class="fa-regular fa-heart"></i><span>Favoritos</span></button>
+    <a href="#contato" data-tab="contato"><i class="fa-regular fa-envelope"></i><span>Orçar</span></a>
+  </nav>
+
   <div id="gameModal" class="modal hidden" aria-hidden="true">
     <div class="modal-overlay" data-close-modal="true"></div>
     <div class="modal-content modal-large" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -511,7 +622,15 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <!-- ui.js vem antes do animations.js de propósito: ele pausa o GSAP enquanto o loader está na tela -->
+  <script src="./ui.js" defer></script>
+  <script src="./scene3d.js" defer></script>
   <script src="./script.js" defer></script>
+  <script src="./animations.js" defer></script>
+  <script src="./effects.js" defer></script>
 </body>
 
 </html>
